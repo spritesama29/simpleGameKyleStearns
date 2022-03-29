@@ -147,6 +147,7 @@ func (g *Game) Draw(screen *ebiten.Image) {
 		}
 		if g.player.xloc < enemy.xloc+enemyWidth && g.player.xloc+playerWidth > enemy.xloc-enemyWidth &&
 			g.player.yloc < enemy.yloc+enemyHeight && g.player.yloc+playerHeight > enemy.yloc-enemyHeight {
+			//Collison from jsantore firstGameDemo repo on github
 			remove(g.enemyList, num)
 			counter += 1
 			//message := fmt.Sprintf("score: %d", counter)
@@ -167,6 +168,7 @@ func (g Game) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeight
 }
 func remove(s []Sprite, index int) []Sprite {
 	return append(s[:index], s[index+1:]...)
+	//Remove function found here https://stackoverflow.com/questions/37334119/how-to-delete-an-element-from-a-slice-in-golang
 }
 func fillList(g *Game) {
 	r := rand.New(rand.NewSource(time.Now().UnixNano()))
